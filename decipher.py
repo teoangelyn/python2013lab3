@@ -7,10 +7,12 @@ try:
     lines = infile.readlines()
     mystery = ''
     mystery_list = []
+    # compile list of common words
     common_list = ['and', 'to', 'the', 'can', 'of', 'is', 'on', 'a', 'are', 'our', 'will', 'we', 'We', 'for', 'in', 'as']
     for line in lines:
         for a in line:
             ascii_no = ord(a)
+            # decrypt
             new_ascii_no = ascii_no - 5
             new_alpha = chr(new_ascii_no)
             mystery = mystery + new_alpha
@@ -31,8 +33,10 @@ try:
             if d == e:
                 mystery_list.remove(e)
                 
-
+    # obtain top 3 most frequently occurring words
     top_3 = Counter(mystery_list).most_common(3)
+    
+######## CANNOT WRITE TO FILE ##########
     outfile.write('hey')
     for n in top_3:
 ##        outfile.write(n[0], end=' ')
